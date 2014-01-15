@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 project(object_recognition_ros)
 
+find_package(PCL REQUIRED)
+
 find_package(catkin REQUIRED ecto ecto_ros geometric_shapes geometry_msgs object_recognition_core
                              object_recognition_msgs pluginlib rosbag roscpp rviz sensor_msgs tf
                              visualization_msgs
@@ -13,6 +15,7 @@ catkin_python_setup()
 # build some cells
 include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
 include_directories(include)
+include_directories(${PCL_INCLUDE_DIRS})
 
 add_subdirectory(python)
 
